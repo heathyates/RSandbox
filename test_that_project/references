@@ -1,0 +1,7 @@
+#References: 
+
+- https://github.com/egoodwintx/hrugtestexample/blob/master/tests/testthat/testhrugtest.r
+- https://stackoverflow.com/questions/41555827/source-function-in-r-error-cannot-find-file-do-i-have-to-change-working-direc
+- https://github.com/r-lib/testthat/issues/700#issuecomment-379578564
+- https://https://stackoverflow.com/questions/37870941/r-trycatch-with-testthat-expectation
+
