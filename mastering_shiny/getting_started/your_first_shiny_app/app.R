@@ -23,15 +23,18 @@ ui <- fluidPage(
 server <- function(input, output, session){
   
   # Recipe for outputs 
+  dataset <- reactive({
+    get(input$dataset, "package:datasets")
+  })
+  
+  
   
   output$summary <- renderPrint({
-    dataset <- get(input$dataset, "package:datasets")
-    summary(dataset)
+    summary(dataset())
   })
   
   output$table <- renderTable({
-    dataset <- get(input$dataset, "package:datasets")
-    dataset #returns the data set 
+    dataset() #returns the data set 
   })
   
 }
