@@ -3,7 +3,7 @@ library(shiny)
 ui <- fluidPage(
   
   "Hello World",
- 
+  
   selectInput("derp", label = "Derps", choices = c("A", "B", "C")), 
   selectInput("dataset", label = "Dataset", choices = ls("package:datasets")),
   
@@ -18,17 +18,20 @@ ui <- fluidPage(
 
 server <- function(input, output, session){
   
+  #Helper Function 
+  dataset <- reactive({
+    get(input$dataset, "package:datasets")
+  })
+  
   
   #Inputs into UI
   output$summary <- renderPrint({
-    dataset <- get(input$dataset, "package:datasets")
-    summary(dataset)
+    summary(dataset())
   })
   
   output$table <- renderTable({
     
-    dataset <- get(input$dataset, "package:datasets")
-    dataset
+    dataset()
     
   })
   
